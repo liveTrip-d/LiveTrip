@@ -1,0 +1,110 @@
+@import '~C:\Users\ameer\myLivetrip\node_modules\bootstrap\dist\css\bootstrap.css'
+
+
+
+
+.jumbotron 
+{
+margin-bottom:0;
+background-image: url("/assets/images/background1.jpg");
+padding: 5px;
+	
+}
+
+
+body{
+
+	background-image:url("/assets/images/background1.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+}
+  
+  /* Nav */
+  .navv{
+	  font-size: 130%;
+	
+  }
+  .navbar-nav > li{
+	padding-left:5px;
+	padding-right:25px;
+  }
+  
+  /* Split the screen in half */
+  .split {
+	  height: 100%;
+	  width: 50%;
+	  position: absolute;
+	  z-index: 1;
+	  top: 9%;
+	  overflow-x: hidden;
+	  padding-top: 20px;
+	}
+	
+	/* Control the left side */
+	.left {
+	  left: 0;
+		}
+	
+	/* Control the right side */
+	.right {
+	  right: 0;
+	}
+	
+	/* If you want the content centered horizontally and vertically */
+	.centered {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  text-align: center;
+	}
+	  select{
+		background-color: #b8b788;
+	}
+	
+  /* ------------------------------------------ */
+	.searchbar{
+	margin-bottom: auto;
+	margin-top: auto;
+   /* position: fixed; */
+   /* top: 15%; */
+	background-color: #353b48;
+	border-radius: 30px;
+	padding: 5px;
+	}
+  
+	.search_input{
+	color: white;
+	border: 0;
+	outline: 0;
+	background: none;
+	width: 0;
+	caret-color:transparent;
+	line-height: 20px;
+	transition: width 0.4s linear;
+	}
+  
+	.searchbar:hover > .search_input{
+	padding: 0px 10px;
+	width: 45%;
+	caret-color:#389992;
+	transition: width 0.2s linear;
+	}
+  
+	.searchbar:hover > .search_icon{
+	background: white;
+	color: #389992;
+	}
+  
+	.search_icon{
+	height: 40px;
+	width: 40px;
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color:white;
+	text-decoration:none;
+	}

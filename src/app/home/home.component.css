@@ -1,0 +1,35 @@
+
+.jumbotron 
+{
+margin-bottom:0;
+background-image: url("/assets/images/background1.jpg");
+padding: 5px;
+	
+}
+#move-right
+{
+float: right;
+
+}
+body
+{
+    background-image: url("/assets/images/background1.jpg");
+
+
+
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.card
+{
+  background-image: url("/assets/images/background1.jpg");
+
+  border: none;
+
+
+  background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+
+}

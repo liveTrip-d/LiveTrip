@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Holy Places </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="navv" >
+    <nav class="navbar fixed-top navbar-expand-md  bg-dark navbar-dark">
+      <a class="navbar-brand" href="#logotohome"><img src="/assets/images/bigicon.png" width="60" height="50"></a>
+      <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="collapsibleNavbar" [ngClass]="{ 'show': navbarOpen }">
+        <ul class="navbar-nav navbar-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/holy">Holy Places</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/hotels">Hotels  </a> 
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link " href="/resturants">Resturants</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link " href="/entertainment">Entertainment</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="/traveling">Traveling</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="/addVideo">Add Video</a>
+          </li>   
+        </ul>
+      </div>  
+    </nav>
+  </div>
+ 
+
+
+
+
+
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+<router-outlet></router-outlet>
