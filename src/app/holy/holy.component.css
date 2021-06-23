@@ -1,8 +1,19 @@
-html,body
-{
-  background-image:url("/assets/images/background1.jpg");
+.card{
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
+  border: none;
+  /* border-radius: 5px; */
+  display: inline-block;
+  background:none;
+  
+  }
+  .list-group-item{
+      background:none;
+  
+  }
+
+  .inline{
+      display: inline-block; 
+      /* vertical-align: middle; */
+  }
+
+  

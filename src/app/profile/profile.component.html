@@ -1,0 +1,86 @@
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 ">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">  <h4 >User Profile</h4></div>
+      <div class="panel-body">
+          
+        <div class="box box-info">
+            
+                <div class="box-body">
+                        <div class="col-sm-6">
+                        <div  align:center> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+                    
+                    <input id="profile-image-upload" class="hidden" type="file">
+                        <div style="color:#999;" >click here to change profile image</div>
+                    <!--Upload Image Js And Css-->
+              
+                  
+      
+                    
+                    
+                        
+                        
+                        </div>
+                  
+                  <br>
+        
+                  <!-- /input-group -->
+                </div>
+                <div class="col-sm-6">
+                    <h1>{{ (user | async)?.firstName }} {{ (user | async)?.lastName }}</h1>
+                    <span><p>Account Type: {{ (user | async)?.accountType }}</p></span>            
+                </div>
+                <div class="clearfix"></div>
+                <hr style="margin:5px 0 5px 0;">
+        
+                  
+    <div class="col-sm-5 col-xs-6 tital " >First Name: {{ (user | async)?.firstName }}</div>
+        <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+
+
+    <div class="col-sm-5 col-xs-6 tital " >Last Name: {{ (user | async)?.lastName }}</div>
+      <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+    <div class="col-sm-5 col-xs-6 tital " >Phone Number :  {{ (user | async)?.phoneNumber  }}</div>
+      <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+    <div class="col-sm-5 col-xs-6 tital " >Email: {{ (user | async)?.email }}</div>
+      <div class="clearfix"></div>
+    <div class="bot-border"></div>
+
+
+
+                <button mat-raised-button color="primary" routerLink="/home">
+                    <mat-icon>home</mat-icon>
+                    <span>Home</span>
+                </button>
+                <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <button class="btn btn-danger btn-sm" routerLink="/home" (click)="logoutUser()">
+                    <span>Logout</span>
+                </button>
+
+
+              </div>
+
+            </div>
+          
+                
+        </div> 
+        </div>
+    </div>  
+  </div>
+</div>

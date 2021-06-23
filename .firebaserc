@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "livetrip-300216": {
+      "hosting": {
+        "myLivetrip": [
+          "livetrip-300216"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "livetrip-300216"
+  }
+}

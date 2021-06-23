@@ -1,0 +1,28 @@
+.lang{
+    border: none;
+    background: none;
+
+
+}
+.card-group{
+  /* display: inline-block ; */
+  display: flex;
+
+  /* position: absolute; */
+  /* margin-right:10%; */
+  /* left: 5%; */
+}  
+.list-group-item{
+   background:none;      
+
+    }  
+  /* .card-body{
+    align-self:flex-end;
+    justify-content:  space-evenly;
+
+  }   */
+ 
+
+
+
+  

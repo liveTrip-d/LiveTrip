@@ -1,1 +1,88 @@
-<p>add-video works!</p>
+<br><br><br>
+
+
+<div class="limiter">
+    <div class="container-login100" style="
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+            <div class="login100-form validate-form">
+                <span class="login100-form-title p-b-49">
+                  <h2> Share your video with Us </h2>
+                </span>
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is reauired">
+                  <span class="label-input100">Name</span>
+                  <input type="text" class="form-control" placeholder="name" name="id" [(ngModel)]="id" >
+                  
+              </div>
+
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Description is reauired">
+              <span class="label-input100">Description</span>
+                 <textarea class="md-textarea form-control inputV "  id="description" placeholder="description" type="text" length="120" mdbCharCounter mdbInput [(ngModel)]="description"></textarea>
+                  
+              </div>
+
+
+
+              <mat-form-field appearance="fill" >
+                <mat-label >Country</mat-label>
+                <select matNativeControl required [(ngModel)]="city"  >
+                  <option value="" disabled selected>Select Country</option>
+                  <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                </select>
+              </mat-form-field>
+
+
+   
+
+                   
+  <mat-form-field appearance="fill" >
+    <mat-label>Catagory</mat-label>
+    <select matNativeControl required [(ngModel)]="catagory">
+      <option value="Traveling">Traveling</option>
+      <option value="Hotels">Hotels</option>
+      <option value="HolyPlaces">HolyPlaces</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Restaurent">Restaurent</option>
+
+    </select>
+  </mat-form-field>
+  
+<mat-form-field appearance="fill" >
+  <mat-label >Language</mat-label>
+  <select matNativeControl required [(ngModel)]="language"  >
+   <option value="Arabic">Arabic</option>
+    <option value="English">English</option>
+    <option value="Hebrew">Hebrew</option>
+    <option value="Spanish">Spanish</option>
+    <option value="Russian">Russian</option>
+    <option value="French">French</option>
+    <option value="Hindi">Hindi</option>
+    <option value="Portuguese">Portuguese</option>
+    <option value="Bengali">Bengali</option>
+    <option value="Chinese">Chinese</option>
+
+  </select>
+</mat-form-field>
+
+
+
+<br>
+<input type="file" (change)="showPreview($event)">
+<br>
+<br>
+<button (click)="save()" class="btn btn-outline-success">Save</button> 
+
+
+                           
+
+               
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="dropDownSelect1"></div>

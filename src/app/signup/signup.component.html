@@ -1,103 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Sign Up LiveTrip</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<br>
+<br><br>
+<div class="limiter">
+    <div class="container-login100" >
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-55 p-b-40">
+            <form  [formGroup]="signupForm" (ngSubmit)="signup()" class="login100-form validate-form">
+                <span class="login100-form-title p-b-20">
+                    Sign Up
+                </span>
+                
+                <div class="flex-c-m">
+                    <a href="/profile" class="login100-social-item bg1">
+                        <i class="fa fa-facebook" style="margin-left: 50%;"></i>
+                        <button class="btn" (click)="faceBookSignin()" ></button>
+                    </a>
 
-<!--===============================================================================================-->
-</head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/bg-02.jpg');">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-49">
-						Sign Up
-					</span>
+                    <a href="/profile" class="login100-social-item bg2">
+                        <i class="fa fa-google" style="margin-left: 50%;"></i><button class="btn" (click)="googleLogin()" ></button>
+                    </a>
+                </div><br>
+                
+                   
+                    <div class="register_form">
+                        <div id="fullname">
+                        <div class ="wrap-input100 validate-input m-b-23">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="label-input100" for="fname">First name</span>
+                    <span id="firstError1" class="Error"></span>
+                    <input autocomplete="off" formControlName="firstName" class="input100" type="text" id="fname" name="firstname" placeholder="First Name" />
+                  </div>
+                   <div class ="wrap-input100 validate-input m-b-23">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="label-input100" for="fname">Last name</span>
+                    <span id="lastError1" class="Error"></span>
+                    <input autocomplete="off" formControlName="lastName" class="input100" type="text" id="lname" name="lastname" placeholder="Last Name" />
+                </div></div> 
+                <div id="fullname">
+                    <div class ="wrap-input100 validate-input m-b-23">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <span class="label-input100" for="fname">Email</span>
+                <span id="firstError1" class="Error"></span>
+                <input formControlName="email" type="email" class="input100" type="email" name="mail" placeholder="Type your email">
+              </div>
+               <div class ="wrap-input100 validate-input m-b-23">
+                <i class="fa fa-mobile" aria-hidden="true"></i>
+                <span class="label-input100" for="fname">Phone</span>
+                <span id="lastError1" class="Error"></span>
+                <input autocomplete="off" formControlName="phoneNumber" class="input100" type="number" name="phone" placeholder="Type phone number">
+            </div></div> 
 
-					<div class="flex-c-m">
-						<a href="#" class="login100-social-item bg1">
-							<i class="fa fa-facebook"></i>
-						</a>
-
-						<a href="#" class="login100-social-item bg3">
-							<i class="fa fa-google"></i>
-						</a>
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <span class="label-input100">Password</span>
+                    <input autocomplete="off" formControlName="password" class="input100" type="password" name="pass" placeholder="Type your password">
+                </div> </div>
+                <div *ngIf="firebaseErrorMessage != ''" class="error-style">
+        <span>{{ firebaseErrorMessage }}</span>
+    </div>
+                <br>
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn">
+                            Register
+                        </button>
                     </div>
-                    
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "first name is reauired">
-						<span class="label-input100">First name</span>
-						<input class="input100" type="text" name="username" placeholder="Type your first name">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div>
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "last name is reauired">
-						<span class="label-input100">Last name</span>
-						<input class="input100" type="text" name="username" placeholder="Type your last name">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
-                    </div>
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Email is reauired">
-						<span class="label-input100">Your Email</span>
-						<input class="input100" type="email" name="mail" placeholder="Type your email">
-						<span class="focus-input100" data-symbol="&#9993;"></span>
-                    </div>
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone number is reauired">
-						<span class="label-input100">Phone</span>
-						<input class="input100" type="tel" name="phone" placeholder="Type your phone number">
-						<span class="focus-input100" data-symbol="&#9742;"></span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Type your password">
-						<span class="focus-input100" data-symbol="&#xf190;"></span>
-					</div>
-					<br>
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Register
-							</button>
-						</div>
-					</div>
+                </div>
+
+<div class="progressIndicator" [style.display]="isProgressVisible ? 'inline' : 'none' ">
+<mat-progress-spinner class=" example-margin" color="primary" mode="indeterminate"></mat-progress-spinner>
+</div>
+
+                <div class="flex-col-c p-t-10">
+                    <span class="txt1 p-b-17">
+                        Or <a href="/login" class="txt2">
+                        Login</a>
+                    </span>
+
+                
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
-
-					<div class="flex-col-c p-t-10">
-						<span class="txt1 p-b-17">
-							Or Login
-						</span>
-
-						<a href="index.html" class="txt2">
-							Login
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-
-	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
-</body>
-</html>
+<div id="dropDownSelect1"></div>

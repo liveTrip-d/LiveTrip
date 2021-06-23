@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import{FileService}from'../services/upload-service';
+
+import { map } from 'rxjs/operators';
+import { countries } from '../country-data-store';////added
+
 
 @Component({
   selector: 'app-entertainment',
@@ -8,9 +12,57 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class EntertainmentComponent implements OnInit {
 
-  constructor() { }
+  //added
+  public countries:any = countries
+//added
+
+  language_search!: string;
+  city_search!:string;
+
+  fileUploads?: any[];
+
+  constructor(private fileservice:FileService) { }
+
+
+
 
   ngOnInit(): void {
-  }
+    this.fileservice.getImageDetailList().snapshotChanges().pipe(
+    map(changes =>
+      // store the key
+      changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+    )
+  ).subscribe(fileUploads => {
+    this.fileUploads = fileUploads;
+  });
 
+   
+  }
+  map_enter = false;
+  vid=true;
+  language_enter=false;
+  city_enter=false;
+  mapClick() {
+    this.map_enter = true;
+    this.vid=false;
+
+  }
+  vidClick(){
+    this.map_enter = false;
+    this.vid=true;
+    this.language_enter=false;
+
+  }
+  langClick(){
+    this.language_enter=true;
+    this.map_enter = false;
+    this.vid=false;
+
+  }
+  cityClick(){
+    this.map_enter = false;
+    this.vid=false;
+    this.language_enter=false;
+    this.city_enter=true;
+    }
 }

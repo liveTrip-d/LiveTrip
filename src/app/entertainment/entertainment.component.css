@@ -1,0 +1,19 @@
+.card{
+
+    border: none;
+    /* border-radius: 5px; */
+    display: inline-block;
+    background:none;
+    
+    }
+    .list-group-item{
+        background:none;
+    
+    }
+
+    .inline{
+        display: inline-block; 
+        /* vertical-align: middle; */
+    }
+
+    

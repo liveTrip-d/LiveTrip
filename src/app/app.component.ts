@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-root' ,
@@ -7,6 +7,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./app.component.css'],
   
 })
+
+
+
 export class AppComponent {
   title = 'myLivetrip';
   icon:string="assests/images/icon.png"
@@ -18,6 +21,7 @@ export class AppComponent {
   header:string="assets/images/header1.jpg"
 
   navbarOpen = false;
+  
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;

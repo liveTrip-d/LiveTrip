@@ -1,46 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Traveling</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<br><br><br><br>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 50%;">
+    <button  mat-fab color="primary"   type="button" class="fas fa-play-circle" id="btn-v" (click)="vidClick()" >Videos</button>&nbsp;
+    <button  mat-fab color="primary" type="button" class="fas fa-map-marker-alt" id ="btn-m" (click)="mapClick()" >Map</button>
+  </div>
+  <br> <br>
+  <!-- Search by Language -->
+  <div class="inline" >     
+    <!-- style="margin-left: 25%;" -->
+     <mat-form-field appearance="fill" >
+      <mat-label >Language</mat-label>
+      <select matNativeControl required [(ngModel)]="language_search"  >
+       <option value="Arabic">Arabic</option>
+        <option value="English">English</option>
+        <option value="Hebrew">Hebrew</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Russian">Russian</option>
+        <option value="French">French</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Portuguese">Portuguese</option>
+        <option value="Bengali">Bengali</option>
+        <option value="Chinese">Chinese</option>
     
-</head>
-<body>
-
-
-<div>
+      </select>
+    </mat-form-field>&nbsp;
+    
+    <button mat-raised-button class="btn btn-dark" type="button" id ="btn-select" (click)="langClick()">Search</button>  
+    </div>
+    <!-- Search by  City,Country-->
+    <div class=" inline">    
+      <mat-form-field appearance="fill" >
+        <mat-label >Country</mat-label>
+        <select matNativeControl required [(ngModel)]="city_search"  >
+          <option value="" disabled selected>Select Country</option>
+          <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+        </select>
+      </mat-form-field>&nbsp;
+<button mat-raised-button class="btn btn-dark" type="button"  id ="btn-select" (click)="cityClick()">Search</button> 
+       </div> 
+      <!-- </div> -->
+       <br>
+      <br>
   
-  <div class="split left ">   
-       <div>
-      <form action="/action_page.php">
-        <div class="container h-100">
-          <div class="d-flex h-100">
-            <div class="searchbar">
-              <input class="search_input" type="text" name="" placeholder="Search">
-              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-            </div>
+  <div id="comp-render1"  *ngIf="map_enter">
+
+            <app-map></app-map>
+        
+  </div>
+
+
+
+<div id="comp-render2" *ngIf="vid" >
+
+          <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;">
+          
+              <li class="list-group-item" *ngIf="file.catagory=='Traveling'" >
+                <app-test-details [fileUpload]='file'></app-test-details>
+              </li>
+            
           </div>
-        </div>      
-      </form>
-    </div>
-    <div class="centered">
-      <h2>Places By Search</h2>
-    <p>Some text here too.</p>
-  </div>
-  </div>
-  <div class="split right">
-    <div class="centered">
-        <h2>Places By Current Location</h2>
-      <p>Some text here too.</p>
-    </div>
+</div>
+<div id="comp-render2" *ngIf="language_enter">
+  <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;"> 
+    
+      <li class="list-group-item" *ngIf="file.catagory=='Traveling'&& language_search==file.language">
+        <app-test-details [fileUpload]='file'></app-test-details>
+      </li>
+    
   </div>
 </div>
-</body>
-</html>
+
+<div id="comp-render2" *ngIf="city_enter ">
+  <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;">
+      <li class="list-group-item" *ngIf="file.catagory=='Traveling'&& city_search==file.city">
+        <app-test-details [fileUpload]='file'></app-test-details>
+      </li>
+    
+  </div>
+</div>
+
+<div id="comp-render2" *ngIf="city_enter && language_enter ">
+  <div class="card"  *ngFor="let file of fileUploads" style="max-width:25rem;">
+      <li class="list-group-item" *ngIf="file.catagory=='Traveling'&& city_search==file.city && language_search==file.language">
+        <app-test-details [fileUpload]='file'></app-test-details>
+      </li>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

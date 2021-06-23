@@ -1,0 +1,18 @@
+
+<br>
+<br>
+<br>
+<div class="container">
+  {{address}}
+    <h1>Google Map</h1>
+    
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+        ></agm-marker>
+    </agm-map>
+    
+
+    
+  </div>
+
+

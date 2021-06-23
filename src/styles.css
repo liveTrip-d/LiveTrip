@@ -1,30 +1,23 @@
-@import '~C:\Users\ameer\myLivetrip\node_modules\bootstrap\dist\css\bootstrap.css'
-
-
-
-
 .jumbotron 
 {
 margin-bottom:0;
-background-image: url("/assets/images/background1.jpg");
+/* background-image: url("/assets/images/background1.jpg"); */
+background: #353a40;
+color: #fff;
 padding: 5px;
 	
 }
-
-
 body{
 
 	background-image:url("/assets/images/background1.jpg");
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-attachment:fixed;
-
-	background-clip: 0;
 }
   
   /* Nav */
   .navv{
-	  font-size: 130%;
+	  font-size: 110%;
 	
   }
   .navbar-nav > li{
@@ -110,3 +103,18 @@ body{
 	color:white;
 	text-decoration:none;
 	}
+	#move-right
+{
+float: right;
+
+}
+.card
+{
+  background-image: url("/assets/images/background1.jpg");
+  border: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
