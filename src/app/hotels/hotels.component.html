@@ -5,6 +5,8 @@
     <button  mat-fab color="primary" type="button" class="fas fa-map-marker-alt" id ="btn-m" (click)="mapClick()" >Map</button>
   </div>
   <br> <br>
+    <h5>your location is:</h5>{{address}}<br>
+
   <!-- Search by Language -->
   <div class="inline" >     
     <!-- style="margin-left: 25%;" -->
@@ -48,16 +50,28 @@
   </div>
 
 
-
-<div id="comp-render2" *ngIf="vid" >
+<div id="comp-render2" *ngIf="all_vid" >
 
           <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;">
           
-              <li class="list-group-item" *ngIf="file.catagory=='Hotels'" >
+              <li class="list-group-item" *ngIf="file.catagory=='Hotels'">
+
                 <app-test-details [fileUpload]='file'></app-test-details>
               </li>
             
           </div>
+</div>
+<div id="comp-render2" *ngIf="current_vid" >
+
+  <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;">
+  
+      <li class="list-group-item" *ngIf="file.catagory=='Hotels'&& address.includes(file.city)">
+        
+
+        <app-test-details [fileUpload]='file'></app-test-details>
+      </li>
+    
+  </div>
 </div>
 <div id="comp-render2" *ngIf="language_enter">
   <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;"> 

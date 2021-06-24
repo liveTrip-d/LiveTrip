@@ -202,6 +202,7 @@ import { FileService } from './services/upload-service';
       {path:'traveling',component:TravelingComponent},
       {path:'addVideo',component:AddVideoComponent,canActivate : [AuthGuard]},
       {path:'entertainment',component:EntertainmentComponent},
+
       { path: '',   redirectTo: '/home', pathMatch: 'full' }
     ])
 ],
@@ -211,7 +212,6 @@ import { FileService } from './services/upload-service';
     AuthService,
     FileService,
     AuthGuard,
-    MapComponent,
     
 
   ],

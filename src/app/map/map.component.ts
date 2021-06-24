@@ -4,9 +4,12 @@ import { ElementRef } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
 import { NgZone } from '@angular/core';
 
+
+
+
 @Component({
   selector: 'app-map',
-  templateUrl: './map.component.html',
+  templateUrl:'./map.component.html',
   styleUrls: ['./map.component.css']
 })
 @Injectable()
@@ -18,25 +21,18 @@ export class MapComponent implements OnInit {
   latitude!: number;
   longitude!: number;
   zoom!: number;
-  address!: string;
-  private geoCoder!: google.maps.Geocoder;
-  
-  @ViewChild('search')
-  public searchElementRef: ElementRef | undefined;
-  
-  constructor(
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
-  ) { }
-  
+  address!: any;
+  geoCoder!: google.maps.Geocoder;
+
+  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone) { }
+
   ngOnInit() {
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
-    });
+  });
   }
-  
-   setCurrentLocation() {/////private
+  setCurrentLocation() {/////private
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
@@ -46,6 +42,7 @@ export class MapComponent implements OnInit {
       });
     }
   }
+
   
   getAddress(latitude: number, longitude: number) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
@@ -63,3 +60,4 @@ export class MapComponent implements OnInit {
     });
   }
 }
+ 

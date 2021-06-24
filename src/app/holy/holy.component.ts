@@ -25,14 +25,15 @@ export class HolyComponent implements OnInit {
   language_search!: string;
   city_search!:string;
 
-  // latitude!: number;
-  // longitude!: number;
-  // zoom!: number;
-  // addressA!: string;
+  latitude!: number;
+  longitude!: number;
+  zoom!: number;
+  address!: string;
+  geoCoder!: google.maps.Geocoder;
 
 
 
-  constructor(private fileservice:FileService) {
+  constructor(private fileservice:FileService,private mapsAPILoader: MapsAPILoader) {
   }
 
 
@@ -49,15 +50,20 @@ export class HolyComponent implements OnInit {
       this.fileUploads = fileUploads;
     });
 
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+    });
+
    
   }
 
 
   map_enter = false;
-  current_vid=true;
   language_enter=false;
   city_enter=false;
   all_vid=false;
+  current_vid=true;
 
 
 
@@ -88,32 +94,32 @@ export class HolyComponent implements OnInit {
   this.language_enter=false;
   this.city_enter=true;
   }
-  // private setCurrentLocation() {
-  //   if ('geolocation' in navigator) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       this.latitude = position.coords.latitude;
-  //       this.longitude = position.coords.longitude;
-  //       this.zoom = 8;
-  //       this.getAddress(this.latitude, this.longitude);
-  //     });
-  //   }
-  // }
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 8;
+        this.getAddress(this.latitude, this.longitude);
+      });
+    }
+  }
   
-  // getAddress(latitude: number, longitude: number) {
-  //   this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
-  //     if (status === 'OK') {
-  //       if (results[0]) {
-  //         this.zoom = 15;
-  //         this.address = results[0].formatted_address;
-  //       } else {
-  //         window.alert('No results found');
-  //       }
-  //     } else {
-  //       window.alert('Geocoder failed due to: ' + status);
-  //     }
+  getAddress(latitude: number, longitude: number) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+      if (status === 'OK') {
+        if (results[0]) {
+          this.zoom = 15;
+          this.address = results[0].formatted_address;
+        } else {
+          window.alert('No results found');
+        }
+      } else {
+        window.alert('Geocoder failed due to: ' + status);
+      }
     
-  //   });
-  // }
+    });
+  }
 
   
 

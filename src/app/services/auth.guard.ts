@@ -27,10 +27,12 @@ export class AuthGuard implements CanActivate {
             } else {
                 console.log('Auth Guard: user is not logged in');
                 this.router.navigate(['/home']);  
-                alert("Sign up to use our site and to share your videos be part of our  family ^_^") ;                // a logged out user will always be sent to home
-                resolve(false);
+                alert("Sign up to use our site and to share your videos be part of our  family ^_^") ;  // a logged out user will always be sent to home
             }
-        });
+                
+                resolve(false);
+        }
+        );
     });
 }
 }

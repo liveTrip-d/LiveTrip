@@ -4,6 +4,7 @@
     <button  mat-fab color="primary" type="button" class="fas fa-map-marker-alt" id ="btn-m" (click)="mapClick()" >Map</button>
   </div>
   <br> <br>
+  <h5>your location is:</h5>{{address}}<br>
 
   <!-- Search by Language -->
   <div class="inline" >     
@@ -69,7 +70,7 @@
 
   <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;">
   
-      <li class="list-group-item" *ngIf="file.catagory=='HolyPlaces'">
+      <li class="list-group-item" *ngIf="file.catagory=='HolyPlaces'&& address.includes(file.city)">
         
 
         <app-test-details [fileUpload]='file'></app-test-details>

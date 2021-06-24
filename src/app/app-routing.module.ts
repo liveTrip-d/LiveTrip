@@ -43,7 +43,7 @@ const routes:Routes =[
   {path:'profile',component:ProfileComponent,canActivate : [AuthGuard]},
   {path:'map',component:MapComponent},
 
-  { path: 'pass', component: ForgotPasswordComponent },
+  // { path: 'pass', component: ForgotPasswordComponent },
 
   { path: 'guide', component: GuideServiceComponent },
 
