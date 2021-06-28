@@ -70,6 +70,9 @@ export class EntertainmentComponent implements OnInit {
   mapClick() {
     this.map_enter = true;
     this.current_vid=false;
+    this.language_enter=false;
+    this.city_enter=false;
+    this.all_vid=false;
 
   }
   vidClick(){
@@ -86,6 +89,8 @@ export class EntertainmentComponent implements OnInit {
     this.map_enter = false;
     this.current_vid=false;
     this.city_enter=false;
+    this.all_vid=false;
+
 
   }
   cityClick(){
@@ -93,6 +98,8 @@ export class EntertainmentComponent implements OnInit {
   this.current_vid=false;
   this.language_enter=false;
   this.city_enter=true;
+  this.all_vid=false;
+
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {

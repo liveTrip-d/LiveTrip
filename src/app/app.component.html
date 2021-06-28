@@ -43,14 +43,17 @@
           <li class="nav-item">
             <a class="nav-link" href="/addVideo">Add Video </a>
           </li>   
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="loginSignUp">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">SignUp</a>
+          <li class="nav-item" *ngIf="loginSignUp">
+            <a class="nav-link" href="/signup">Sign Up</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="profile">
             <a class="nav-link" href="/profile" >profile </a>
+          </li>
+          <li class="nav-item" *ngIf="profile">
+            <a class="nav-link" href="/profile" (click)="logoutUser()">Log Out</a>
           </li>
 
 

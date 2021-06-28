@@ -67,6 +67,9 @@ public countries:any = countries
 
   mapClick() {
     this.map_enter = true;
+    this.all_vid=false;
+    this.language_enter=false;
+    this.city_enter=false;
     this.current_vid=false;
 
   }
@@ -84,11 +87,14 @@ public countries:any = countries
     this.map_enter = false;
     this.current_vid=false;
     this.city_enter=false;
+    this.all_vid=false;
+
 
   }
   cityClick(){
   this.map_enter = false;
   this.current_vid=false;
+  this.all_vid=false;
   this.language_enter=false;
   this.city_enter=true;
   }

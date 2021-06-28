@@ -3,7 +3,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from "rxjs/operators";
 import {FileService} from '../services/upload-service'//////////////////Upload srvice/////////////
 import { countries } from '../country-data-store';
-
+import { AuthService } from '../services/auth.service';
+import firebase from "firebase/app";
 
 
 @Component({
@@ -24,7 +25,7 @@ export class AddVideoComponent{
     url!: string;
     id!: string;
     file!: string;
-
+    usrId:string;
     citySearch!:string;
     catagorySearch!:string;
 
@@ -44,13 +45,20 @@ export class AddVideoComponent{
       this.selectedImage = event.target.files[0];
     }
     save() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.usrId = user.uid;
+          console.log(this.usrId);
+          // ...
+        } 
+      });
       var name = this.selectedImage.name;
       const fileRef = this.storage.ref(name);
       this.storage.upload(name, this.selectedImage).snapshotChanges().pipe(
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.url = url;
-            this.fileService.insertImageDetails(this.id,this.url,this.city,this.description,this.catagory,this.language);
+            this.fileService.insertImageDetails(this.usrId,this.id,this.url,this.city,this.description,this.catagory,this.language);
             alert('Upload Successful');
           })
         })

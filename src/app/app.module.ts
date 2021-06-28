@@ -50,7 +50,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -76,7 +75,9 @@ import { MatTreeModule } from '@angular/material/tree';
 import {MatInputModule} from '@angular/material/input';
 import{MatToolbarModule} from'@angular/material/toolbar';
 import{MatExpansionModule} from'@angular/material/expansion';
-import { MatCardModule} from '@angular/material/card'
+import { MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { TestDetailsComponent } from './test-details/test-details.component';

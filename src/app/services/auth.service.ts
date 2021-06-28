@@ -66,7 +66,7 @@ export class AuthService {
                       phoneNumber:user.phoneNumber,
                       firstName_lower: user.firstName.toLowerCase(),
                       email: user.email,
-                      email_lower: emailLower
+                      email_lower: emailLower,
                   })
                   .catch(error => {
                     console.log(error)

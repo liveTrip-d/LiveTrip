@@ -1,5 +1,7 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, Input } from '@angular/core';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import { AuthService } from '../services/auth.service';
+import firebase from "firebase/app";
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +9,12 @@ import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 export class FileService {
   [x: string]: any;
 
+  // @Input() fileUpload!:FileService["dataSet"];
 
   imageDetailList!: AngularFireList<any>;
   fileList: any[] = [];
   dataSet: Data = {
+    userId:'',
     id:'',
     url:'',
     city:'',
@@ -28,9 +32,10 @@ export class FileService {
   getImageDetailList() {
     return this.imageDetailList = this.firebase.list('videoDetails');
   }
-
-  insertImageDetails(id: string,url: string,city:string,description:string,catagory:string,language:string) {
+// 
+  insertImageDetails(userId:string,id: string,url: string,city:string,description:string,catagory:string,language:string) {
     this.dataSet = {
+      userId:userId,
       id : id,
       url: url,
       city:city,
@@ -83,9 +88,9 @@ export class FileService {
 }
 export interface Data{
   [x: string]: any;
+  userId:string;
   id:string;
   url:string;
-
   city:string;
   description:string;
   catagory:string;
