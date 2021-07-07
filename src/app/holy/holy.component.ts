@@ -65,6 +65,7 @@ export class HolyComponent implements OnInit {
   all_vid=false;
   current_vid=true;
 
+  both_enter=false;
 
 
   mapClick() {
@@ -88,8 +89,17 @@ export class HolyComponent implements OnInit {
     this.language_enter=true;
     this.map_enter = false;
     this.current_vid=false;
-    this.city_enter=false;
+    // this.city_enter=false;
     this.all_vid=false;
+    if(this.language_enter==true&&this.city_enter==true)
+    {
+      this.both_enter=true;
+      this.language_enter=false;
+      this.city_enter=false;
+                   
+
+    }
+
 
 
   }
@@ -97,9 +107,19 @@ export class HolyComponent implements OnInit {
   this.map_enter = false;
   this.current_vid=false;
   this.all_vid=false;
-  this.language_enter=false;
+  // this.language_enter=false;
   this.city_enter=true;
+
+    if(this.city_enter==true&&this.language_enter==true)
+    {
+      this.both_enter=true;
+      this.language_enter=false;
+      this.city_enter=false;
+          
+    }
+
   }
+
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {

@@ -1,3 +1,6 @@
+.all{
+    margin-left: 2%;
+}
 .card{
 
     border: none;
@@ -15,5 +18,8 @@
         display: inline-block; 
         /* vertical-align: middle; */
     }
-
+.butGr{
+position: absolute;
+margin-left: 50%;
+}
     

@@ -24,12 +24,13 @@ body
 .card
 {
   background-image: url("/assets/images/background1.jpg");
-
   border: none;
-
-
   background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
 
+}
+.img{
+  width: 80%;
+  height: 90%;
 }

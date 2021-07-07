@@ -1,10 +1,11 @@
 <br><br><br><br>
+<div style="margin-left: 3%;">
   <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 50%;">
-    <button  mat-fab color="primary"   type="button" class="fas fa-play-circle" id="btn-v" (click)="vidClick()" >Videos</button>&nbsp;
-    <button  mat-fab color="primary" type="button" class="fas fa-map-marker-alt" id ="btn-m" (click)="mapClick()" >Map</button>
+    <button   type="button" class="btn btn-dark fas fa-play-circle" id="btn-v" (click)="vidClick()">All Videos</button>&nbsp;
+    <button  type="button" class="btn btn-dark fas fa-map-marker-alt" id ="btn-m" (click)="mapClick()" >Map</button>
   </div>
   <br> <br>
-  <h5>your location is:</h5>{{address}}<br>
+  <!-- <h5>your location is:</h5>{{address}}<br> -->
 
   <!-- Search by Language -->
   <div class="inline" >     
@@ -70,12 +71,19 @@
 
   <div class="card" *ngFor="let file of fileUploads" style="max-width:25rem;">
   
-      <li class="list-group-item" *ngIf="file.catagory=='HolyPlaces'&& address.includes(file.city)">
+      <li class="list-group-item" *ngIf="file.catagory=='HolyPlaces'&& (address.includes(file.city)||file.city=='Israel')">
         
 
         <app-test-details [fileUpload]='file'></app-test-details>
       </li>
     
+  </div>
+</div>
+<div id="comp-render2" *ngIf="both_enter">
+  <div class="card"  *ngFor="let file of fileUploads" style="max-width:25rem;">
+      <li class="list-group-item" *ngIf="file.catagory=='HolyPlaces'&& city_search==file.city && language_search==file.language">
+        <app-test-details [fileUpload]='file'></app-test-details>
+      </li>
   </div>
 </div>
 <div id="comp-render2" *ngIf="language_enter">
@@ -97,12 +105,5 @@
   </div>
 </div>
 
-<div id="comp-render2" *ngIf="city_enter && language_enter ">
-  <div class="card"  *ngFor="let file of fileUploads" style="max-width:25rem;">
-      <li class="list-group-item" *ngIf="file.catagory=='HolyPlaces'&& city_search==file.city && language_search==file.language">
-        <app-test-details [fileUpload]='file'></app-test-details>
-      </li>
-  </div>
-</div>
 
-<router-outlet></router-outlet>
+</div>

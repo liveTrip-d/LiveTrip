@@ -100,6 +100,7 @@ import { FileService } from './services/upload-service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,6 +122,7 @@ import { FileService } from './services/upload-service';
     ProfileComponent,
     ForgotPasswordComponent,
     TestDetailsComponent,
+  
 
 
     
@@ -213,6 +215,7 @@ import { FileService } from './services/upload-service';
     AuthService,
     FileService,
     AuthGuard,
+    MapComponent,
     
 
   ],

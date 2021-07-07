@@ -59,13 +59,10 @@ export class AuthService {
 
               this.afs.doc('/users/'+emailLower )    //      emailLower              // on a successful signup, create a document in 'users' collection with the new user's info
                   .set({
-                      accountType: 'UserA',
                       firstName: user.firstName,
                       lastName: user.lastName,
-
                       phoneNumber:user.phoneNumber,
                       firstName_lower: user.firstName.toLowerCase(),
-                      email: user.email,
                       email_lower: emailLower,
                   })
                   .catch(error => {

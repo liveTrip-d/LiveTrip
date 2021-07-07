@@ -2,6 +2,7 @@ import { Injectable, Inject, Input } from '@angular/core';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from '../services/auth.service';
 import firebase from "firebase/app";
+import { AppModule } from '../app.module';
 
 @Injectable({
   providedIn: 'root'

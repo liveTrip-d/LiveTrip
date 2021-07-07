@@ -49,7 +49,9 @@ export class MapComponent implements OnInit {
       if (status === 'OK') {
         if (results[0]) {
           this.zoom = 15;
-          this.address = results[0].formatted_address;
+          this.address = results[0].formatted_address;///////its results[0]
+          // console.log(results[3]);////////address country not  city
+          // console.log(results[3]);
         } else {
           window.alert('No results found');
         }

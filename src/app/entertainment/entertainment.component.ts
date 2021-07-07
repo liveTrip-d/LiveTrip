@@ -1,19 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, NgModule, OnInit } from '@angular/core';
 import{FileService}from'../services/upload-service';
 
 import { map } from 'rxjs/operators';
 import { countries } from '../country-data-store';////added
 
 import { MapsAPILoader } from '@agm/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AppModule } from '../app.module';
 
+
+
+@Injectable({
+  providedIn: 'root'
+})
 
 
 
 @Component({
   selector: 'app-entertainment',
   templateUrl: './entertainment.component.html',
-  styleUrls: ['./entertainment.component.css']
+  styleUrls: ['./entertainment.component.css'],
+
 })
+
 export class EntertainmentComponent implements OnInit {
 
   //added

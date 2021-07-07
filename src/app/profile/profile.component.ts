@@ -14,71 +14,62 @@ import { map } from 'rxjs/operators';
 export class ProfileComponent implements OnInit {
     videoList: any[];
     userId:string;
+    empty :number=0;
+    emp  :boolean;
+    vid :boolean;
     @Input() fileUpload!:FileService["dataSet"];
-    rowIndexArray: any[];
-
-
-    user!: Observable<any>; 
-    list!: Observable<any>;
+    
+    user!: Observable<any>; // Example: store the user's info here (Cloud Firestore: collection is 'users', docId is the user's email, lower case)
+              // Example: store the user's info here (Cloud Firestore: collection is 'users', docId is the user's email, lower case)
 constructor(private afAuth: AngularFireAuth, private firestore: AngularFirestore, private service:AuthService,private fileService: FileService) {
     // this.user = null;
 }
 
 ngOnInit(): void {
     this.afAuth.authState.subscribe(user => {
+        // console.log('Dashboard: user', user);
 
         if (user) {
+            // let emailLower = user.email.toLowerCase();
             this.user = this.firestore.collection('users').doc(user.email?.toLowerCase()).valueChanges();
         }
     });
- 
+   
+
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       this.userId = user.uid;  
-      console.log(this.userId);
+      // console.log(this.userId);
       this.fileService.getImageDetailList().snapshotChanges().pipe(//////////////////////// getfiles(6)
 
     map(changes =>
+      // store the key
       changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
     )
   ).subscribe((fileUploads :any)=> {
       
     this.videoList = fileUploads;
-    
-  });
-
-    } 
-    
-  });
-
-
-}
-
-
-
-    async logoutUser(){
-    try {
-        await this.afAuth.signOut();
-    } catch (error) {
-        console.log('Auth Service: logout error...');
-        console.log('error code', error.code);
-        console.log('error', error);
-        if (error.code)
-            return error;
+    for (let i = 0; i < this.videoList.length; i++) {        
+    // console.log(this.videoList[36].userId);
+    if (this.videoList[i].userId== this.userId) {
+      this.empty++;      
     }
-}
-getUserId(){
-    const user = this.service.getCurrentUser();
-firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-
-      var uid = user.uid;
-      console.log(uid);
-    } else {
-
     }
+    if (this.empty>0) {
+      this.emp=true;
+      this.vid=false;
+    }
+    else{
+      this.emp=false;
+      this.vid=true;
+    }
+    console.log(this.empty);
+  });
+    }     
   });
 }
+
+
 }
 
 

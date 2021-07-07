@@ -7,27 +7,13 @@ import { HolyComponent } from './holy/holy.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddVideoComponent } from './add-video/add-video.component';
-
 import{AuthGuard}from './services/auth.guard';
-
-
-
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MapComponent } from './map/map.component';
 import { GuideServiceComponent } from './guide/guide-service.component';
-
-
-
-
-
-
-
-
-
 
 
 const routes:Routes =[ 
@@ -42,21 +28,7 @@ const routes:Routes =[
   {path:'signup',component:SignupComponent},
   {path:'profile',component:ProfileComponent,canActivate : [AuthGuard]},
   {path:'map',component:MapComponent},
-
-  // { path: 'pass', component: ForgotPasswordComponent },
-
   { path: 'guide', component: GuideServiceComponent },
-
-
-
-
-
-
-
-
-  
-
-
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   ];
  
