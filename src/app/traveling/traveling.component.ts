@@ -63,6 +63,7 @@ public countries:any = countries
   all_vid=false;
   current_vid=true;
 
+  both_enter=false;
 
 
   mapClick() {
@@ -86,17 +87,41 @@ public countries:any = countries
     this.language_enter=true;
     this.map_enter = false;
     this.current_vid=false;
-    this.city_enter=false;
     this.all_vid=false;
 
+    if(this.language_enter==true&&this.city_enter==true)
+    {
+      this.both_enter=true;
 
+      this.language_enter=false;
+      this.city_enter=false;
+    }
+    else if(this.language_enter==true&&this.city_enter==false){
+
+      this.language_enter=true;
+      this.both_enter=false;
+    }
   }
   cityClick(){
-  this.map_enter = false;
-  this.current_vid=false;
-  this.all_vid=false;
-  this.language_enter=false;
-  this.city_enter=true;
+    this.map_enter = false;
+    this.current_vid=false;
+    this.all_vid=false;
+    this.city_enter=true;
+  
+        if(this.language_enter==true&&this.city_enter==true)
+        {
+          this.both_enter=true;
+  
+          this.language_enter=false;
+          this.city_enter=false;
+        }
+        else if(this.language_enter==false&&this.city_enter==true){
+  
+          this.city_enter=true;
+  
+          this.both_enter=false;
+          this.all_vid=false;
+        }
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
@@ -114,7 +139,8 @@ public countries:any = countries
       if (status === 'OK') {
         if (results[0]) {
           this.zoom = 15;
-          this.address = results[0].formatted_address;
+          this.address = results[3].formatted_address;
+          console.log(this.address);
         } else {
           window.alert('No results found');
         }

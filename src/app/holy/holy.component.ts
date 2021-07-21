@@ -89,15 +89,19 @@ export class HolyComponent implements OnInit {
     this.language_enter=true;
     this.map_enter = false;
     this.current_vid=false;
-    // this.city_enter=false;
     this.all_vid=false;
+
     if(this.language_enter==true&&this.city_enter==true)
     {
       this.both_enter=true;
+
       this.language_enter=false;
       this.city_enter=false;
-                   
+    }
+    else if(this.language_enter==true&&this.city_enter==false){
 
+      this.language_enter=true;
+      this.both_enter=false;
     }
 
 
@@ -107,16 +111,22 @@ export class HolyComponent implements OnInit {
   this.map_enter = false;
   this.current_vid=false;
   this.all_vid=false;
-  // this.language_enter=false;
   this.city_enter=true;
 
-    if(this.city_enter==true&&this.language_enter==true)
-    {
-      this.both_enter=true;
-      this.language_enter=false;
-      this.city_enter=false;
-          
-    }
+      if(this.language_enter==true&&this.city_enter==true)
+      {
+        this.both_enter=true;
+
+        this.language_enter=false;
+        this.city_enter=false;
+      }
+      else if(this.language_enter==false&&this.city_enter==true){
+
+        this.city_enter=true;
+
+        this.both_enter=false;
+        this.all_vid=false;
+      }
 
   }
 
@@ -136,7 +146,9 @@ export class HolyComponent implements OnInit {
       if (status === 'OK') {
         if (results[0]) {
           this.zoom = 15;
-          this.address = results[0].formatted_address;
+          this.address = results[3].formatted_address;
+          console.log(this.address);
+          
         } else {
           window.alert('No results found');
         }

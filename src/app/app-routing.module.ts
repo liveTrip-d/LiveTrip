@@ -14,6 +14,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProfileComponent } from './profile/profile.component';
 import { MapComponent } from './map/map.component';
 import { GuideServiceComponent } from './guide/guide-service.component';
+import { HeaderComponent } from './header/header.component';
 
 
 const routes:Routes =[ 

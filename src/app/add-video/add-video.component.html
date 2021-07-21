@@ -11,13 +11,13 @@
                 <span class="login100-form-title p-b-49">
                   <h2> Share your video with Us </h2>
                 </span>
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is reauired">
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "City is reauired">
                   <span class="label-input100">City</span>
-                  <input type="text" class="form-control" placeholder="name" name="id" [(ngModel)]="id" >
+                  <input type="text" class="form-control" placeholder="City" name="city" [(ngModel)]="city" >
                   
               </div>
 
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Description is reauired">
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Description ">
               <span class="label-input100">Description</span>
                  <textarea class="md-textarea form-control inputV "  id="description" placeholder="description" type="text" length="120" mdbCharCounter mdbInput [(ngModel)]="description"></textarea>
                   
@@ -27,9 +27,9 @@
 
               <mat-form-field appearance="fill" >
                 <mat-label >Country</mat-label>
-                <select matNativeControl required [(ngModel)]="city"  >
+                <select matNativeControl required [(ngModel)]="country"  >
                   <option value="" disabled selected>Select Country</option>
-                  <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                  <option *ngFor="let country_loop of countries" [value]="country_loop.name">{{country_loop.name}}</option>
                 </select>
               </mat-form-field>
 

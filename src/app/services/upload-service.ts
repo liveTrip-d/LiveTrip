@@ -16,9 +16,9 @@ export class FileService {
   fileList: any[] = [];
   dataSet: Data = {
     userId:'',
-    id:'',
-    url:'',
     city:'',
+    url:'',
+    country:'',
     description:'',
     catagory:'',
     language:''
@@ -34,12 +34,12 @@ export class FileService {
     return this.imageDetailList = this.firebase.list('videoDetails');
   }
 // 
-  insertImageDetails(userId:string,id: string,url: string,city:string,description:string,catagory:string,language:string) {
+  insertImageDetails(userId:string,city: string,url: string,country:string,description:string,catagory:string,language:string) {
     this.dataSet = {
       userId:userId,
-      id : id,
+      city : city,
       url: url,
-      city:city,
+      country:country,
       description:description,
       catagory:catagory,
       language:language
@@ -54,7 +54,7 @@ export class FileService {
         this.fileList = list.map(item => { return item.payload.val();  });
 
         this.fileList.forEach(element => {
-          if(element.city===value1 && element.catagory==value2)//change 24/4
+          if(element.country===value1 && element.catagory==value2)//change 24/4
              this.msg = element.url;
         });
 
@@ -90,9 +90,9 @@ export class FileService {
 export interface Data{
   [x: string]: any;
   userId:string;
-  id:string;
-  url:string;
   city:string;
+  url:string;
+  country:string;
   description:string;
   catagory:string;
   language:string;

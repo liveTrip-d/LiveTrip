@@ -1,25 +1,11 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import{AuthGuard}from './services/auth.guard';
 import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
-  selector: 'app-root' ,
-  templateUrl:'./app.component.html',
-  styleUrls: ['./app.component.css'],
-  
+  selector: 'app-header',
+  templateUrl:'./header.component.html',
+  styleUrls: ['./header.component.css']
 })
-
-
-
-export class AppComponent {
-  title = 'myLivetrip';
-  icon:string="assests/images/icon.png"
-  flight:string="assests/images/flight.png"
-  travel:string="assests/images/travel.jpg"
-  mapgo:string="assests/images/mapgo.jpg"
-  food:string="assests/images/food.jpg"
-  video:string="assests/images/video.jpg"
-  header:string="assets/images/header1.jpg"
+export class HeaderComponent  {
 
   navbarOpen = false;
   profile:boolean;
@@ -51,5 +37,5 @@ export class AppComponent {
             return error;
     }
 }
-  
+
 }

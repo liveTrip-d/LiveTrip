@@ -1,122 +1,10 @@
-<!-- 
-<br>
-<br>
-<br>
-<br>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-7">
-
-    <div >
-      <div class="panel-heading">  <h5>{{ (user | async)?.firstName }} Profile</h5></div>
-      <br>
-      <div class="panel-body">
-          
-        <div class="box box-info left-col user-info">
-            
-                <div class="box-body">
-                        <div class="col-sm-6">
-                        <div  align:center>
-                         <img alt="User Pic" src='../../assets/images/prof.jpg' id="profile-image1" class="img-circle img-responsive"> 
-                    
-                   
-                        
-                        </div>
-                  
-                  <br>
-        
-                 
-                </div>
-                <div >
-                    <h1>{{ (user | async)?.firstName }} {{ (user | async)?.lastName }}</h1>        
-                </div>
-                <div class="clearfix"></div>
-                <hr style="margin:5px 0 5px 0;">
-        
-      
-    <div class=" tital " ><i class="fa fa-mobile" aria-hidden="true"></i>
-       :  {{ (user | async)?.phoneNumber  }}</div>
-      <div class="clearfix"></div>
-    <div class="bot-border"></div>
-
-    <div class="tital "><i class="fa fa-envelope" aria-hidden="true"></i> 
-      : {{ (user | async)?.email }}</div>
-     
-    <br><br>
-
-
-              </div>
-
-            </div>
-            <section class="section center-col content">
-    
-   
-              
-              <div class="unit user-hyped">
-                <h3><a href="http://lookbook.nu/user/17530-Willabelle-O">Willabelle</a> hyped <a href="#more-looks-url">13 looks</a></h3>
-                <p class="time">12 hours ago</p>
-                <ul class="image-grid col-3">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-                <a href="#more-looks-url" class="more">View 7 more looks <i class="fa fa-angle-down"></i></a>
-              </div>
-              
-              
-              <div class="unit user-hyped">
-                <h3><a href="http://lookbook.nu/user/17530-Willabelle-O">Willabelle</a> fanned <a href="#user-profile-url">Mizuho K</a></h3>
-               
-                <ul class="image-grid col-3">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              
-              </div>
-            </section>
-            
-          
-          
-                
-        </div> 
-        </div>
-    </div>  
-  </div>
-</div>
-
-
-<h3 class="col-md-7 "> Videos You Uplouded   </h3>
-<div class="clearfix"></div>
-    <div class="bot-border"></div>
-               
-    <div id="comp-render2" >
-
-      <div class="card" *ngFor="let file of videoList" style="max-width:25rem;">
-        <div *ngIf="file.userId==userId">
-    
-          <li class="list-group-item"  >
-            <app-test-details [fileUpload]='file'></app-test-details>
-          </li>
-        
-      </div></div>
-    </div> -->
-
-    
     <br><br><br><br><br>
 
     <div *ngIf="emp">
 
     <div class="panel-heading title" style="margin-left: 40% ;color	:#ffffff; font-size: 400%;">  <h1>{{ (user | async)?.firstName }} Profile</h1></div>
     <br><br>
-    <section class="left-col user-info pro col-md-7">
+    <section class="user-info pro col-md-7" style="margin:0 auto;width: 30%;">
       <div >
         <div class="inner"></div>
 		<!-- <div class="panel-heading">  <h3>{{ (user | async)?.firstName }} Profile</h3></div> -->
@@ -134,7 +22,7 @@
     
     
 
-  <section class="section center-col content">
+  <section class="section  content">
     <div class="unit user-hyped">
       
       <br>

@@ -6,6 +6,8 @@ import { countries } from '../country-data-store';
 import { AuthService } from '../services/auth.service';
 import firebase from "firebase/app";
 
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-add-video',
@@ -23,18 +25,18 @@ export class AddVideoComponent{
 
     selectedImage: any = null;
     url!: string;
-    id!: string;
+    city!: string;
     file!: string;
     usrId:string;
     citySearch!:string;
     catagorySearch!:string;
 
-    city!: string;
+    country!: string;
     description!: string;
     catagory!: string;
     language!:string;
     
-    constructor(private storage: AngularFireStorage,private fileService: FileService) { }
+    constructor(private storage: AngularFireStorage,private fileService: FileService,public dialog: MatDialog) { }
     ngOnInit() {
       this.fileService.getImageDetailList();
     }
@@ -58,8 +60,16 @@ export class AddVideoComponent{
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.url = url;
-            this.fileService.insertImageDetails(this.usrId,this.id,this.url,this.city,this.description,this.catagory,this.language);
-            alert('Upload Successful');
+            this.fileService.insertImageDetails(this.usrId,this.city,this.url,this.country,this.description,this.catagory,this.language);
+            // alert('Upload Successful');
+            let dialogRef=this.dialog.open(DialogContentExampleDialogSuccessfull,{panelClass: 'dialog-container-custom', 
+
+            height: '400px',
+            width: '550px',
+
+
+});
+window.setTimeout(function(){location.reload()},3000)
           })
         })
       ).subscribe();
@@ -69,3 +79,11 @@ export class AddVideoComponent{
     }
   
   }
+  @Component({
+    selector:'dialog-elements-example-dialog-successful',
+    templateUrl:'dialog-elements-example-dialog-successful.html',
+  })
+  export class DialogContentExampleDialogSuccessfull {
+  
+  }
+  

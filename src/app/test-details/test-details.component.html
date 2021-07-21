@@ -8,18 +8,19 @@
                 </video>
                 <a href="{{ fileUpload.url }}" ></a>   
         <div class="card-body">
-         
-          <p class="card-text" style="font-weight: 800;"> Description : {{fileUpload.description}}</p>
-          <p class="card-text" style="font-weight: 800;">Country : {{fileUpload.city}}</p>
-          <p class="card-text" style="font-weight: 800;">Language  :  {{fileUpload.language}}</p>
+         <ul>
+          <li class="card-text" style="font-weight: 800;"> Description : {{fileUpload.description}}</li>
+          <li class="card-text" style="font-weight: 800;"> City : {{fileUpload.city}}</li>
+          <li class="card-text" style="font-weight: 800;">Country : {{fileUpload.country}}</li>
+          <li class="card-text" style="font-weight: 800;">Language  :  {{fileUpload.language}}</li> </ul>
           <!-- <p class="card-text" style="font-weight: 800;"></p> -->
-        </div>
-        <div class="delete_button" *ngIf="admin" >
-          <button (click)="deleteFileUpload(fileUpload)"
-          class="btn btn-danger btn-sm" style="float: right">
+        
+        <!-- <div class="delete_button"  > -->
+          <a *ngIf="admin" (click)="deleteFileUpload(fileUpload)"
+          class=" btn btn-danger btn-sm" >
                       Delete
-        </button>
-      </div>
+        </a></div>
+      <!-- </div> -->
     <!-- </mat-card-content> -->
 </div>
 <!-- </div> -->

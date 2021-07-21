@@ -38,6 +38,8 @@ import{ProfileComponent}from './profile/profile.component';
 import{MapComponent}from './map/map.component'
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
+import { HeaderComponent } from './header/header.component';
+
 
 
 
@@ -122,6 +124,7 @@ import { FileService } from './services/upload-service';
     ProfileComponent,
     ForgotPasswordComponent,
     TestDetailsComponent,
+    HeaderComponent
   
 
 
